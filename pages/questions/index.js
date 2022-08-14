@@ -1,10 +1,10 @@
 import Head from "next/head";
 import QuestionLayout from "../../components/question_layout";
-import { done, load, stateQuery } from "../../lib/state";
+import { done, useData, stateQuery } from "../../lib/state";
 import { questions } from "../../lib/questions";
 
 export default function AllQuestions({ data }) {
-  const answers = load();
+  const answers = useData();
   const complete = done(answers)
   return (
     <QuestionLayout>

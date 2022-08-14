@@ -1,11 +1,11 @@
 import Head from "next/head";
 import QuestionLayout from "../components/question_layout";
-import { load } from "../lib/state";
+import { useData } from "../lib/state";
 import { styles, skills } from "../lib/questions";
 import { calculateScores } from "../lib/score";
 
 export default function Result() {
-  const answers = load();
+  const answers = useData();
   const skillScores = calculateScores(answers);
   return (
     <QuestionLayout>

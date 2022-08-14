@@ -1,9 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
-import { load, done, stateQuery } from "../lib/state";
+import { useData, done, stateQuery } from "../lib/state";
 
 export default function QuestionLayout({ children }) {
-  const answers = load();
+  const answers = useData();
   const query = stateQuery(answers);
   return (
     <>

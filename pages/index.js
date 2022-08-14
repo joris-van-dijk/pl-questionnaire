@@ -1,8 +1,8 @@
 import QuestionLayout from "../components/question_layout";
-import { load, stateQuery } from "../lib/state";
+import { useData, stateQuery } from "../lib/state";
 
 export default function Description() {
-  const answers = load();
+  const answers = useData();
   return (
     <QuestionLayout>
       <div className="prose mx-2 mb-3">

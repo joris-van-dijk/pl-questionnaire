@@ -23,8 +23,8 @@ export default function QuestionLayout({ children }) {
                   </svg>
                 </label>
                 <ul tabIndex="0" className="dropdown-content menu menu-compact mt-3 p-2 bg-base-100 shadow rounded-box w-52 mt-4">
-                  <li><a href="/">Nieuw</a></li>
-                  <li><a href={"/" + query}>Uitleg</a></li>
+                  <li><Link href="/">Nieuw</Link></li>
+                  <li><Link href={"/" + query}>Uitleg</Link></li>
                   <li><Link href={"/questions" + query}>Overzicht</Link></li>
                   <li className={done(answers) ? "" : "hidden"}><Link href={"/result" + query}>Resultaat</Link></li>
                 </ul>

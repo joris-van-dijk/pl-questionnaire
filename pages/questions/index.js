@@ -14,8 +14,8 @@ export default function AllQuestions({ data }) {
       <div className="prose mx-2 mb-5">
         <h2>Overzicht</h2>
         <p className={complete ? "whitespace-normal" : "hidden"}>Je hebt alle vragen beantwoord. Hieronder zie je ze
-          allemaal nog een keer. De scores zijn ingevuld op een schaal van 1 tot 5, waarbij 1 staat voor '(bijna) nooit'
-          en 5 voor '(bijna) altijd'. Klik op een vraag als je deze nog aan wilt passen, of ga naar het resultaat via de
+          allemaal nog een keer. De scores zijn ingevuld op een schaal van 1 tot 5, waarbij 1 staat voor &lsquo(bijna) nooit&rsquo
+          en 5 voor &lsquo(bijna) altijd&rsquo. Klik op een vraag als je deze nog aan wilt passen, of ga naar het resultaat via de
           knop onderaan de pagina.</p>
         <p className={complete ? "hidden" : "whitespace-normal"}>Je hebt nog niet alle vragen beantwoord. Bekijk
           hieronder welke je nog in moet vullen. Als alle vragen zijn ingevuld kun je het resultaat bekijken.</p>

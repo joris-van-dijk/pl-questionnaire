@@ -32,8 +32,8 @@ export default function QuestionLayout({ children }) {
             </div>
             <div className="navbar-end hidden md:flex">
               <ul className="menu menu-horizontal p-0">
-                <li><a href="/">Nieuw</a></li>
-                <li><a href={"/" + query}>Uitleg</a></li>
+                <li><Link href="/">Nieuw</Link></li>
+                <li><Link href={"/" + query}>Uitleg</Link></li>
                 <li><Link href={"/questions" + query}>Overzicht</Link></li>
                 <li className={done(answers) ? "" : "hidden"}><Link href={"/result" + query}>Resultaat</Link></li>
               </ul>

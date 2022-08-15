@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { done, stateQuery  } from "../lib/state";
+import {done, newStateQuery, stateQuery} from "../lib/state";
 
 export default function QuestionLayout({ answers, children }) {
   const query = stateQuery(answers)
@@ -21,7 +21,6 @@ export default function QuestionLayout({ answers, children }) {
                   </svg>
                 </label>
                 <ul tabIndex="0" className="dropdown-content menu menu-compact mt-3 p-2 bg-base-100 shadow rounded-box w-52 mt-4">
-                  <li><Link href="/">Nieuw</Link></li>
                   <li><Link href={"/" + query}>Uitleg</Link></li>
                   <li><Link href={"/questions" + query}>Overzicht</Link></li>
                   <li className={done(answers) ? "" : "hidden"}><Link href={"/result" + query}>Resultaat</Link></li>
@@ -30,7 +29,6 @@ export default function QuestionLayout({ answers, children }) {
             </div>
             <div className="navbar-end hidden md:flex">
               <ul className="menu menu-horizontal p-0">
-                <li><Link href="/">Nieuw</Link></li>
                 <li><Link href={"/" + query}>Uitleg</Link></li>
                 <li><Link href={"/questions" + query}>Overzicht</Link></li>
                 <li className={done(answers) ? "" : "hidden"}><Link href={"/result" + query}>Resultaat</Link></li>

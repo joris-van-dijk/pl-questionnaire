@@ -1,5 +1,5 @@
 import QuestionLayout from "../components/question_layout";
-import {defaultAnswers, done, stateQuery} from "../lib/state";
+import { done, stateQuery } from "../lib/state";
 
 export default function Description({ answers }) {
   const complete = done(answers)

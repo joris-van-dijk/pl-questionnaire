@@ -2,7 +2,7 @@ import Head from "next/head";
 import QuestionLayout from "../../components/question_layout";
 import { done, stateQuery } from "../../lib/state";
 import { questions } from "../../lib/questions";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 export default function AllQuestions({ answers, data }) {
   const router = useRouter();

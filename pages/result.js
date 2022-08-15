@@ -6,13 +6,14 @@ import {calculateScores} from "../lib/score";
 export default function Result({ answers, skills, styles }) {
   const skillScores = calculateScores(answers);
   return (
-    <QuestionLayout answers={ answers }>
+    <QuestionLayout answers={answers}>
       <Head>
         <title>Resultaat</title>
       </Head>
       <div className="prose mx-2 mb-3">
         <h2>Resultaat</h2>
-        <p>Hieronder vindt je het resultaat van de vragenlijst. Sla de URL in de adresbalk op om dit resultaat te bewaren of te delen.</p>
+        <p>Hieronder vind je het resultaat van de vragenlijst. Sla de URL in de adresbalk op om dit resultaat te bewaren
+          of te delen.</p>
       </div>
 
       <div className="prose mx-2 mb-3">
@@ -26,14 +27,14 @@ export default function Result({ answers, skills, styles }) {
           </tr>
         </thead>
         <tbody>
-          {
-            skills.map((skill) => (
-              <tr key={skill}>
-                <td className="whitespace-normal">{skill}</td>
-                <td className="text-center">{skillScores[skill]}</td>
-              </tr>
-            ))
-          }
+        {
+          skills.map((skill) => (
+            <tr key={skill}>
+              <td className="whitespace-normal">{skill}</td>
+              <td className="text-center">{skillScores[skill]}</td>
+            </tr>
+          ))
+        }
         </tbody>
       </table>
 
@@ -44,20 +45,20 @@ export default function Result({ answers, skills, styles }) {
       </div>
       <table className="table table-compact w-full">
         <thead>
-          <tr>
-            <th>Gedragssoort</th>
-            <th className="text-center">Score</th>
-          </tr>
+        <tr>
+          <th>Gedragssoort</th>
+          <th className="text-center">Score</th>
+        </tr>
         </thead>
         <tbody>
-          {
-            Object.entries(styles).map(([style, skills]) => (
-              <tr key={style}>
-                <td className="whitespace-normal">{style}</td>
-                <td className="text-center">{skills.map((skill) => skillScores[skill]).reduce((s, c) => s + c, 0)}</td>
-              </tr>
-            ))
-          }
+        {
+          Object.entries(styles).map(([style, skills]) => (
+            <tr key={style}>
+              <td className="whitespace-normal">{style}</td>
+              <td className="text-center">{skills.map((skill) => skillScores[skill]).reduce((s, c) => s + c, 0)}</td>
+            </tr>
+          ))
+        }
         </tbody>
       </table>
     </QuestionLayout>

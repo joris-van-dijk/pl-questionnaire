@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
     if (router.isReady && router.query['state']) {
       setAnswers(deserialize(router.query['state']));
     }
-  }, [router.isReady])
+  }, [router.isReady, router.query])
 
   return <Component {...pageProps} answers={answers}/>
 }

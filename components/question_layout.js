@@ -7,7 +7,6 @@ export default function QuestionLayout({ answers, children }) {
   return (
     <>
       <Head>
-        <html data-theme="garden"/>
         <title>Beïnvloedingsstijlen</title>
       </Head>
       <div className="flex">

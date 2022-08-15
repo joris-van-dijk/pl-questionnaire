@@ -22,15 +22,17 @@ export default function AllQuestions({ answers, data }) {
           Klik op een vraag als je deze nog aan wilt passen, of ga naar het resultaat via de knop onderaan de
           pagina.</p>
         <p className={complete ? "hidden" : "whitespace-normal"}>Je hebt nog niet alle vragen beantwoord. Bekijk
-          hieronder welke je nog in moet vullen. Als alle vragen zijn ingevuld kun je het resultaat bekijken.</p>
+          hieronder welke nog niet zijn beantwoord. Klik op een vraag om deze te beantwoorden of aan te passen. Als alle
+          vragen zijn
+          ingevuld kun je het resultaat bekijken.</p>
       </div>
       <table className="table table-compact w-full mb-5">
         <thead>
-          <tr>
-            <th/>
-            <th>Vraag</th>
-            <th className="text-center">Keuze</th>
-          </tr>
+        <tr>
+          <th/>
+          <th>Vraag</th>
+          <th className="text-center">Keuze</th>
+        </tr>
         </thead>
         <tbody>
         {

@@ -1,16 +1,15 @@
 import Head from "next/head";
 import QuestionLayout from '../../components/question_layout';
 import { getAllQuestionIds, getQuestionData } from '../../lib/questions'
-import { useData, progress, withAnswer } from "../../lib/state";
+import { progress, withAnswer } from "../../lib/state";
 import { firstBlankQuestionUrl } from "../../lib/links";
 
-export default function Question({ questionData }) {
-  const answers = useData();
+export default function Question({ answers, questionData }) {
   const questionId = Number(questionData.id);
   const title = "Vraag " + questionData.id;
   const currentAnswer = answers[questionId - 1];
   return (
-    <QuestionLayout>
+    <QuestionLayout answers={ answers }>
       <Head>
         <title>{title}</title>
       </Head>

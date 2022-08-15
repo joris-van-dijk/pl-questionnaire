@@ -1,10 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useData, done, stateQuery } from "../lib/state";
+import { done, stateQuery  } from "../lib/state";
 
-export default function QuestionLayout({ children }) {
-  const answers = useData();
-  const query = stateQuery(answers);
+export default function QuestionLayout({ answers, children }) {
+  const query = stateQuery(answers)
   return (
     <>
       <Head>

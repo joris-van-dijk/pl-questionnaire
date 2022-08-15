@@ -1,14 +1,12 @@
 import Head from "next/head";
 import QuestionLayout from "../components/question_layout";
-import { useData } from "../lib/state";
-import { styles, skills } from "../lib/questions";
-import { calculateScores } from "../lib/score";
+import { skills, styles } from "../lib/questions";
+import {calculateScores} from "../lib/score";
 
-export default function Result() {
-  const answers = useData();
+export default function Result({ answers, skills, styles }) {
   const skillScores = calculateScores(answers);
   return (
-    <QuestionLayout>
+    <QuestionLayout answers={ answers }>
       <Head>
         <title>Resultaat</title>
       </Head>
@@ -22,11 +20,20 @@ export default function Result() {
       </div>
       <table className="table table-compact w-full">
         <thead>
-          <th>Vaardigheid</th>
-          <th className="text-center">Score</th>
+          <tr>
+            <th>Vaardigheid</th>
+            <th className="text-center">Score</th>
+          </tr>
         </thead>
         <tbody>
-          { skillRows(skillScores) }
+          {
+            skills.map((skill) => (
+              <tr key={skill}>
+                <td className="whitespace-normal">{skill}</td>
+                <td className="text-center">{skillScores[skill]}</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
 
@@ -37,31 +44,31 @@ export default function Result() {
       </div>
       <table className="table table-compact w-full">
         <thead>
-          <th>Gedragssoort</th>
-          <th className="text-center">Score</th>
+          <tr>
+            <th>Gedragssoort</th>
+            <th className="text-center">Score</th>
+          </tr>
         </thead>
         <tbody>
-          { styleRows(skillScores) }
+          {
+            Object.entries(styles).map(([style, skills]) => (
+              <tr key={style}>
+                <td className="whitespace-normal">{style}</td>
+                <td className="text-center">{skills.map((skill) => skillScores[skill]).reduce((s, c) => s + c, 0)}</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
     </QuestionLayout>
   )
 }
 
-function skillRows(skillScores) {
-  return skills.map((skill) => (
-    <tr key={skill}>
-      <td className="whitespace-normal">{skill}</td>
-      <td className="text-center">{skillScores[skill]}</td>
-    </tr>
-  ))
-}
-
-function styleRows(skillScores) {
-  return Object.entries(styles).map(([style, skills]) => (
-    <tr key={style}>
-      <td className="whitespace-normal">{style}</td>
-      <td className="text-center">{skills.map((skill) => skillScores[skill]).reduce((s, c) => s + c, 0)}</td>
-    </tr>
-  ))
+export async function getStaticProps({}) {
+  return {
+    props: {
+      skills: skills,
+      styles: styles
+    }
+  }
 }

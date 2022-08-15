@@ -1,10 +1,9 @@
 import QuestionLayout from "../components/question_layout";
-import { useData, stateQuery } from "../lib/state";
+import { stateQuery } from "../lib/state";
 
-export default function Description() {
-  const answers = useData();
+export default function Description({ answers }) {
   return (
-    <QuestionLayout>
+    <QuestionLayout answers={ answers }>
       <div className="prose mx-2 mb-3">
         <h2>Vragenlijst invloedstijlen</h2>
         <p>Welke vaardigheden zet je meestal in en welke vaardigheden minder? Dat wordt duidelijk met behulp van de

@@ -14,13 +14,4 @@ This is a [Next.js](https://nextjs.org/) project, using [TailwindCSS](https://ta
 
 ## Setup
 
-Prerequisites
- - node v16.15.1
- - mpm 8.17.0
-
-If you've installed the prerequisites, you should be  good to go:
-
-```bash
-npm install
-npm run dev
-```
+See [installation.md](./docs/installation.md).
